@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Videos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .video-container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Lista de Videos</h1>
+    <div id="videos"></div>
+
+    <script>
+
+function createIframe(videoDiv, video, title){
+            // Crear un elemento de iframe para el video
+            const iframe = document.createElement('iframe');
+            iframe.src = video.link;
+            iframe.width = "560";
+            iframe.height = "315";
+            iframe.allowFullscreen = true;
+
+               // Agregar el título y el video al contenedor
+               videoDiv.appendChild(title);
+            const linka = document.createElement('a');
+            linka.href = video.link;
+            linka.textContent = video.link;
+            linka.style = "display: block;"
+            videoDiv.appendChild(linka);
+            videosContainer.appendChild(document.createElement('br'));
+            videoDiv.appendChild(iframe);
+            
+
+            // Agregar el contenedor del video al contenedor principal
+            videosContainer.appendChild(videoDiv);
+            videosContainer.appendChild(document.createElement('br'));
+            videosContainer.appendChild(document.createElement('hr'));
+        }
+
+        // Array JSON de ejemplo
+        const videosArray = [
+{
+"index":9,
+"title": "DEJA",
+"link": "https://player.vimeo.com/video/677824813"
+},
+{
+"index":3,
+"title": "FOCO MANO ABIERTA",
+"link": "https://player.vimeo.com/video/677826145"
+},
+{
+    "index": 10,
+    "title": "JUEGO DE OLFATO",
+    "link": "https://player.vimeo.com/video/677824990"
+},
+{
+    "index": 13,
+    "title": "JUNTO",
+    "link": "https://player.vimeo.com/video/677825636"
+},
+{
+    "index": 15,
+    "title": "A TU LUGAR",
+    "link": "https://player.vimeo.com/video/677825730"
+},
+{
+    "index": 14,
+    "title": "RESOLUCIÓN DE PROBLEMAS",
+    "link": "https://player.vimeo.com/video/677970614"
+},
+{
+    "index": 10,
+    "title": "JUEGO OLFATO LINEAL",
+    "link": "https://player.vimeo.com/video/677826535"
+},
+{
+    "index": 10,
+    "title": "HANSEL Y GRETEL",
+    "link": "https://player.vimeo.com/video/677826456"
+},
+{
+    "index": 14,
+    "title": "Espacio de juego",
+    "link": "https://player.vimeo.com/video/678249986"
+},
+{
+    "index": 10,
+    "title": "MODELADO",
+    "link": "https://player.vimeo.com/video/677825141"
+},
+{
+    "index": 15,
+    "title": "PROPIOCEPCION",
+    "link": "https://player.vimeo.com/video/677825885"
+},{
+	"index": 16,
+	"title": "Teaching your dog to drop food",
+	"link": "https://www.youtube.com/embed/ndTiVOCNY4M"},
+{
+    "index": 3,
+    "title": "NO",
+    "link": "https://player.vimeo.com/video/780872350"
+},
+{
+	"index": 18,
+    "title": "Enriquecimiento Ambiental",
+    "link": "https://www.youtube.com/embed/p7fXa2Occ_U"
+},
+{
+	"index": 19,
+    "title": "Kelly’s K9 Kitchen - STUFFED TOYS",
+    "link": "https://www.youtube.com/embed/kkAzoZ615LQ"
+},
+{
+ "index": 20,
+"title":"Opciones de juego",
+"link":[
+"https://www.instagram.com/reel/CUxKOJdIhZA/?utm_medium=copy_link",
+"https://www.instagram.com/tv/CLK7BsnpszG/?utm_medium=copy_link",
+"https://www.instagram.com/reel/CUFWhj0hFoA/?utm_medium=copy_link",
+"https://www.instagram.com/tv/CRkUjeIgqp3/?utm_medium=copy_link",
+"https://www.instagram.com/reel/CPslfcbjkXL/?utm_medium=copy_link",
+"https://www.instagram.com/p/BuRaeeQhCOE/",
+"https://www.instagram.com/p/BvWihYvHzIx/",
+"https://www.instagram.com/reel/CRRD6n-DMWD/?utm_medium=copy_link",
+"https://www.instagram.com/reel/CSUBhGZDLxv/?utm_medium=copy_link",
+"https://www.instagram.com/p/ByE_tAWgsWI/",
+"https://www.instagram.com/p/B240XRupLQ0/",
+"https://hablaconellos.com/wp-content/uploads/Guia-confinamiento.pdf",
+"https://www.instagram.com/hablaconellosec/",
+"https://www.instagram.com/reel/CPePgEAFJFP/?utm_medium=copy_link",
+"https://www.instagram.com/reel/CLmv9SZpAsa/?utm_medium=copy_link",
+"https://www.instagram.com/reel/CZVJD12pnfk/?igshid=YmMyMTA2M2Y",
+"https://www.instagram.com/reel/CNctLODpGyT/?utm_medium=copy_link",
+"https://www.instagram.com/reel/CbAvqAYAj7j/?igshid=YmMyMTA2M2Y",
+"https://www.instagram.com/p/Ce2FKK2PNgV/?igshid=YmMyMTA2M2Y",
+"https://www.instagram.com/p/CfW1YnepXsP/?igshid=YmMyMTA2M2Y"
+]
+},
+{
+    "index": 1,
+    "title": "MUY BIEN.mp4",
+    "link": "https://player.vimeo.com/video/564882713"
+},
+{
+    "index": 2,
+    "title": "NOMBRE",
+    "link": "https://player.vimeo.com/video/677824372"
+},
+{
+    "index": 4,
+    "title": "TARGET",
+    "link": "https://player.vimeo.com/video/677823996"
+},
+{
+    "index": 8,
+    "title": "TARGET DINAMICO",
+    "link": "https://player.vimeo.com/video/677824503"
+},
+{
+    "index": 3,
+    "title": "FOCO Y AUTOCONTROL",
+    "link": "https://player.vimeo.com/video/677823852"
+},
+{
+    "index": 5,
+    "title": "SENTADO",
+    "link": "https://player.vimeo.com/video/677826255"
+},
+{
+    "index": 5,
+    "title": "Echado de Pie Bali Junco",
+    "link": "https://player.vimeo.com/video/682328630"
+},
+{
+    "index": 8,
+    "title": "QUIETO",
+    "link": "https://player.vimeo.com/video/677824164"
+},
+{
+    "index": 10,
+    "title": "JUEGO DE OLFATO",
+    "link": "https://player.vimeo.com/video/677824990"
+},
+
+
+
+]
+;
+
+        // Ordenar el array por el campo 'index'
+        videosArray.sort((a, b) => a.index - b.index);
+
+        // Obtener el contenedor donde se mostrarán los videos
+        const videosContainer = document.getElementById('videos');
+
+        
+
+        // Recorrer el array y generar la interfaz
+        videosArray.forEach(video => {
+            // Crear un contenedor para cada video
+            const videoDiv = document.createElement('div');
+            videoDiv.className = 'video-container';
+
+            // Crear un elemento de título
+            const title = document.createElement('h2');
+            title.textContent = video.index+" - "+video.title;
+            if(Array.isArray(video.link)){
+                console.log("VID",video);
+                videoDiv.appendChild(title);
+                const list = document.createElement('ul');
+                video.link.forEach(a=>{
+                    const linka = document.createElement('a');
+                    linka.href = a;
+                    linka.textContent = a;
+                    const elem = document.createElement('li');
+                    elem.appendChild(linka);
+                    list.appendChild(elem);
+
+                })
+                videoDiv.appendChild(list);
+                videosContainer.appendChild(videoDiv);
+            }else{
+                createIframe(videoDiv, video, title)
+            }
+            ;
+
+        });
+    </script>
+
+</body>
+</html>
